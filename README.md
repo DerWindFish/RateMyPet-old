@@ -10,6 +10,8 @@ Are you familar with the staggeringly popular Twitter account WeRateDogs? Well n
 ***
 In this project I plan to use Django and PostgreSQL for my back end and React for my front end. Users will be able to sign up for accounts, view all the rated pets, submit their own ratings, and submits their own pets for rating.
 
+***
+## Other Links:
 [ERD](https://drive.google.com/file/d/1RUStYDcuJ4sIVDFFePnkSgGCUxqZUxyp/view) ||
 [CHD](https://drive.google.com/file/d/19GnWbm6xDR1H09mERjidgMPQ0Se4lPbe/view) ||
 [Trello](https://trello.com/b/XYo5UYBZ/weratepets)
