@@ -7,7 +7,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         many=True,
         read_only=True
     )
-    userratings = serializers.HyperlinkRelatedField(
+    userratings = serializers.HyperlinkedRelatedField(
         view_name='userrating_detail',
         many=True,
         read_only=True
@@ -28,7 +28,7 @@ class PetSerializer(serializers.HyperlinkedModelSerializer):
     )
     class Meta:
         model = Pet
-        fields = ('userid', 'rating', 'image_url', 'users', 'userratings')
+        fields = ('rating', 'image_url', 'users', 'userratings')
 
 class UserRatingSerializer(serializers.HyperlinkedModelSerializer):
     users = serializers.HyperlinkedRelatedField(
@@ -42,4 +42,4 @@ class UserRatingSerializer(serializers.HyperlinkedModelSerializer):
     )
     class Meta:
         model = UserRating
-        fields = ('userrating', 'userid', 'petid', 'users', 'pets')
+        fields = ('userrating', 'users', 'pets')

@@ -1,15 +1,27 @@
-from django.shortcuts import render
+from rest_framework import generics
+from .serializers import UserSerializer, PetSerializer, UserRatingSerializer
 from .models import User, Pet, UserRating
 
-# Create your views here.
-def user_list(request):
-    users = User.objects.all()
-    return render(request, 'RateMyPet/user_list.html', {'users':users})
+class UserList(generics.ListCreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
-def pet_list(request):
-    pets = Pet.objects.all()
-    return render(request, 'RateMyPet/pet_list.html', {'pets': pets})
+class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
-def userrating_list(request):
-    userratings = UserRating.objects.all()
-    return render(request, 'RateMyPet/userrating_list.html', {'userratings':userratings})
+class PetList(generics.ListCreateAPIView):
+    queryset = Pet.objects.all()
+    serializer_class = PetSerializer
+
+class PetDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Pet.objects.all()
+    serializer_class = PetSerializer
+
+class UserRatingList(generics.ListCreateAPIView):
+    queryset = UserRating.objects.all()
+    serializer_class = UserRatingSerializer
+
+class UserRatingDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = UserRating.objects.all()
+    serializer_class = UserRatingSerializer
