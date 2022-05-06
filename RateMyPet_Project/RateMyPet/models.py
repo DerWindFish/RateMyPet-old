@@ -17,3 +17,11 @@ class Pet(models.Model):
 
     def __str__(self):
         return self.rating
+
+class UserRating(models.Model):
+    userrating = models.TextField(max_length=300)
+    userid = models.ForeignKey(User, on_delete=models.CASCADE, related_name='userratings')
+    petid = models.ForeignKey(Pet, on_delete=models.CASCADE, related_name='userratings')
+
+    def __str__(self):
+        return self.userrating
