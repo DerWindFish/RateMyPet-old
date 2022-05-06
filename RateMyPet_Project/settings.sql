@@ -1,4 +1,4 @@
 -- settings.sql
-CREATE DATABASE RateMyPet;
-CREATE USER RateMyPetAdmin WITH PASSWORD 'password';
-GRANT ALL PRIVILEGES ON DATABASE RateMyPet TO RateMyPetAdmin;
+CREATE DATABASE ratemypet;
+CREATE USER ratemypetadmin WITH PASSWORD 'password';
+GRANT ALL PRIVILEGES ON DATABASE ratemypet TO ratemypetadmin;
