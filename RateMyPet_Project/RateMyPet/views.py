@@ -1,5 +1,4 @@
 from django.shortcuts import render
-
 from .models import User, Pet, UserRating
 
 # Create your views here.

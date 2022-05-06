@@ -1,0 +1,10 @@
+<h2>Pets</h2>
+<ul>
+    {% for pet in pets %}
+    <li>
+        <img src="{{ pet.image_url }}" />
+        <p>{{ pet.rating }}</p>
+        <p>{{ pet.userId }}</p>
+    </li>
+    {% endfor %}
+</ul>
