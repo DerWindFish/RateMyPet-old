@@ -12,7 +12,8 @@ class User(models.Model):
 class Pet(models.Model):
     rating = models.TextField(max_length=300)
     image_url = models.TextField()
-    userid = models.ForeignKey(User, on_delete=models.CASCASE, related_name='pets')
+    # userid = models.ForeignKey(User, on_delete=models.CASCASE, related_name='pets')
+    userId = models.ForeignKey(User, on_delete=models.CASCADE, related_name='pets')
     # create userrating here
 
     def __str__(self):
