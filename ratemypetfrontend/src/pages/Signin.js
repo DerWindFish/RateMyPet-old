@@ -1,11 +1,11 @@
 import { useState } from 'react'
+import React from 'react'
 import { SignInUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 
-const Signin = (props) => {
+const SignIn = (props) => {
 
-  let navigate = useNavigate()
-
+  let naviagte = useNavigate()
   
   const [formValues, setFormValues] = useState({ email: '', password: '' })
 
@@ -15,47 +15,46 @@ const Signin = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
     const payload = await SignInUser(formValues)
+
     setFormValues({
       email: '',
       password: ''
     })
+
     props.setUser(payload)
     props.toggleAuthenticated(true)
-    localStorage.setItem('watcher', payload.email)
-    localStorage.setItem('watcher-id', payload.id)
-    navigate('/dashboard')
+    naviagte('/feed')
+
   }
 
-
   return (
-    <div className="signin">
-			<h3>SignIn</h3>
-      <div className="signin-form">
-        <form className="form" onSubmit={handleSubmit}>
+    <div className="signin col">
+      <div className="card-overlay centered">
+        <form className="col" onSubmit={handleSubmit}>
           <div className="input-wrapper">
-            <label>Email</label>
+            <label htmlFor="email">Email</label>
             <input
               onChange={handleChange}
               name="email"
               type="email"
-              placeholder="Animefan23@email.com"
+              placeholder="example@example.com"
               value={formValues.email}
               required
             />
           </div>
           <div className="input-wrapper">
-            <label>Password</label>
+            <label htmlFor="password">Password</label>
             <input
               onChange={handleChange}
               type="password"
               name="password"
-              placeholder='********'
               value={formValues.password}
               required
             />
           </div>
-          <button className="button-2 button-2B" disabled={!formValues.email || !formValues.password}>
+          <button disabled={!formValues.email || !formValues.password}>
             Sign In
           </button>
         </form>
@@ -64,4 +63,4 @@ const Signin = (props) => {
   )
 }
 
-export default Signin
+export default SignIn
