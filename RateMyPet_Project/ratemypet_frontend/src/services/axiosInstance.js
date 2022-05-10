@@ -30,3 +30,5 @@ axiosInstance.interceptors.request.use(async req => {
     req.headers.Authorization = `Bearer ${response.data.access}`
     return req
 })
+
+export default axiosInstance
